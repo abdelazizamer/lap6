@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Users Table</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+  </head>
+  <body class="bg-light">
+    <div class="container mt-5">
+      <h2 class="mb-4">User Table</h2>
+      <div class="mb-3 d-flex">
+        <input
+          type="number"
+          id="searchId"
+          class="form-control me-2"
+          placeholder="Search by ID"
+        />
+        <button class="btn btn-primary" id="searchBtn">Search</button>
+        <button class="btn btn-success ms-2" id="btn">Fetch Users</button>
+      </div>
+      <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>City</th>
+            <th>Website</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

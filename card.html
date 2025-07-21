@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Card</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <style>
+      body {
+        background: linear-gradient(to right, #f0f2f5, #dbe8ff);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .user-card {
+        max-width: 400px;
+        background-color: #fff;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        border-radius: 15px;
+        padding: 20px;
+        text-align: center;
+      }
+      .user-card img {
+        border-radius: 50%;
+        width: 100px;
+        margin-bottom: 15px;
+      }
+      .user-card h4 {
+        margin-top: 10px;
+      }
+      .user-card a {
+        text-decoration: none;
+        color: #007bff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="user-card" id="card"></div>
+
+    <script>
+      const user = JSON.parse(localStorage.getItem("user"));
+
+      if (user) {
+        const card = document.getElementById("card");
+        card.innerHTML = `
+        <img src="https://i.pravatar.cc/100?img=${user.id}" alt="User Image" />
+        <h4>${user.name}</h4>
+        <p><strong>Username:</strong> ${user.username}</p>
+        <p><strong>Email:</strong> ${user.email}</p>
+        <p><strong>City:</strong> ${user.address.city}</p>
+        <p><strong>Website:</strong> <a href="http://${user.website}" target="_blank">${user.website}</a></p>
+        <button onclick="window.history.back()" class="btn btn-secondary mt-3">Back</button>
+      `;
+      } else {
+        document.getElementById("card").innerHTML =
+          "<p>No user data found.</p>";
+      }
+    </script>
+  </body>
+</html>
